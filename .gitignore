@@ -48,8 +48,12 @@ node_modules/
 .git
 .env
 
-
 !.gitkeep
 bin/
 act
 .vscode
+
+# Don't ignore the output directory for GitHub Pages
+!out/
+
+

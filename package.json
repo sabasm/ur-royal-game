@@ -5,20 +5,23 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
+    "export": "next export",
+    "deploy": "npm run build && npm run export && touch out/.nojekyll && git add . && git commit -m 'Deploy to GitHub Pages' && git push origin main",
     "lint": "next lint"
   },
   "dependencies": {
+    "next": "14.2.15",
+    "next-export-optimize-images": "^4.5.1",
     "react": "^18",
     "react-dom": "^18",
-    "next": "14.2.15"
+    "rxjs": "^7.8.1"
   },
   "devDependencies": {
-    "typescript": "^5",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "eslint": "^8",
-    "eslint-config-next": "14.2.15"
+    "eslint-config-next": "14.2.15",
+    "typescript": "^5"
   }
 }
