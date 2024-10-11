@@ -34,3 +34,22 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+apply_context.log
+updates.txt
+
+# Ignore App Engine configuration files
+app.yaml
+
+# General ignores
+node_modules/
+.gcloudignore
+.next/
+.git
+.env
+
+
+!.gitkeep
+bin/
+act
+.vscode
