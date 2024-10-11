@@ -12,7 +12,7 @@
 
 # next.js
 /.next/
-/out/
+.out/
 out/
 
 # production
@@ -54,6 +54,6 @@ node_modules/
 bin/
 act
 .vscode
-
+s
 # Don't ignore the output directory for GitHub Pages
 # Handled by deploy.yml

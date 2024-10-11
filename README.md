@@ -1,3 +1,33 @@
+## Setting Up GitHub Actions Secrets
+
+### Using `GITHUB_TOKEN`
+
+GitHub Actions automatically provides a `GITHUB_TOKEN` secret for authenticating workflows. You do not need to create this token manually.
+
+### Adding Additional Secrets
+
+If your workflow requires additional secrets (e.g., personal access tokens), follow these steps:
+
+1. Navigate to your repository on GitHub.
+2. Click on **Settings**.
+3. In the left sidebar, select **Secrets and variables** > **Actions**.
+4. Click on **New repository secret**.
+5. Enter the **Name** (e.g., `PERSONAL_ACCESS_TOKEN`) and the **Value** of your token.
+6. Click **Add secret**.
+
+### Creating a Personal Access Token
+
+If you need a personal access token with specific permissions:
+
+1. Go to [GitHub Settings](https://github.com/settings/tokens).
+2. Click on **Generate new token**.
+3. Provide a note and select the required scopes.
+4. Click **Generate token**.
+5. Copy the generated token and add it as a secret in your repository as described above.
+
+
+
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
