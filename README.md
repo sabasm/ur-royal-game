@@ -1,30 +1,32 @@
-## Setting Up GitHub Actions Secrets
+/README.md
+## Deployment Setup
 
-### Using `GITHUB_TOKEN`
+### Creating a Personal Access Token (PAT)
 
-GitHub Actions automatically provides a `GITHUB_TOKEN` secret for authenticating workflows. You do not need to create this token manually.
+1. Go to [GitHub Settings](https://github.com/settings/tokens).
+2. Click on **Generate new token**.
+3. Choose **Fine-grained personal access tokens**.
+4. Provide a **Token name**, e.g., "GitHub Actions Deployment Token".
+5. Set the **Expiration** as desired.
+6. Under **Repository access**, select:
+   - **Only select repositories**
+   - Choose `ur-royal-game`
+7. Under **Permissions**, ensure the following are set to **Read & write**:
+   - **Contents**
+   - **Administration**
+   - **Actions**
+8. Click **Generate token**.
+9. Copy the generated token.
 
-### Adding Additional Secrets
-
-If your workflow requires additional secrets (e.g., personal access tokens), follow these steps:
+### Adding the PAT to GitHub Secrets
 
 1. Navigate to your repository on GitHub.
 2. Click on **Settings**.
 3. In the left sidebar, select **Secrets and variables** > **Actions**.
 4. Click on **New repository secret**.
-5. Enter the **Name** (e.g., `PERSONAL_ACCESS_TOKEN`) and the **Value** of your token.
-6. Click **Add secret**.
-
-### Creating a Personal Access Token
-
-If you need a personal access token with specific permissions:
-
-1. Go to [GitHub Settings](https://github.com/settings/tokens).
-2. Click on **Generate new token**.
-3. Provide a note and select the required scopes.
-4. Click **Generate token**.
-5. Copy the generated token and add it as a secret in your repository as described above.
-
+5. Enter the **Name** as `GH_PAT`.
+6. Paste the copied token into the **Value** field.
+7. Click **Add secret**.
 
 
 
