@@ -1,4 +1,5 @@
 import { BehaviorSubject } from 'rxjs';
+import { tryCatch } from '@/utils/tryCatch';
 
 interface AppConfig {
   apiUrl: string;
@@ -27,6 +28,24 @@ const defaultConfig: AppConfig = {
 export class ConfigService {
   private configSubject = new BehaviorSubject<AppConfig>(defaultConfig);
   config$ = this.configSubject.asObservable();
+
+  loadConfig(): void {
+    if (process.env.NODE_ENV === 'production') {
+      return;
+    }
+
+    tryCatch(
+      () => fetch('/config.json').then(res => res.json()),
+      (error) => {
+        console.warn('Failed to load config.json, using default configuration');
+        console.error('Error loading config:', error);
+      }
+    ).subscribe(loadedConfig => {
+      if (loadedConfig) {
+        this.configSubject.next({ ...defaultConfig, ...loadedConfig });
+      }
+    });
+  }
 
   getCurrentConfig(): AppConfig {
     return this.configSubject.value;
