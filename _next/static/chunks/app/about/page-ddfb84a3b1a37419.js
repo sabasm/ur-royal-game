@@ -1,0 +1,2 @@
+(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[301,665],{5024:function(e,_,n){Promise.resolve().then(n.t.bind(n,2293,23))},2293:function(e){e.exports={main:"page_main__GlU4n",title:"page_title__3jonF",description:"page_description__86bsR",gameModes:"page_gameModes__qeeBo",gameMode:"page_gameMode__yf7CQ",link:"page_link__36MaQ"}}},function(e){e.O(0,[591,971,117,744],function(){return e(e.s=5024)}),_N_E=e.O()}]);
+//# sourceMappingURL=page-ddfb84a3b1a37419.js.map
