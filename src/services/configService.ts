@@ -1,3 +1,4 @@
+// src/services/configService.ts
 import { BehaviorSubject } from 'rxjs';
 import { tryCatch } from '@/utils/tryCatch';
 
@@ -34,17 +35,22 @@ export class ConfigService {
       return;
     }
 
-    tryCatch(
-      () => fetch('/config.json').then(res => res.json()),
-      (error) => {
-        console.warn('Failed to load config.json, using default configuration');
-        console.error('Error loading config:', error);
-      }
-    ).subscribe(loadedConfig => {
-      if (loadedConfig) {
-        this.configSubject.next({ ...defaultConfig, ...loadedConfig });
-      }
-    });
+    if (typeof window !== 'undefined') {
+      // Ensure this code only runs in the browser
+      const configUrl = `${window.location.origin}/config.json`;
+
+      tryCatch(
+        () => fetch(configUrl).then(res => res.json()),
+        (error) => {
+          console.warn('Failed to load config.json, using default configuration');
+          console.error('Error loading config:', error);
+        }
+      ).subscribe(loadedConfig => {
+        if (loadedConfig) {
+          this.configSubject.next({ ...defaultConfig, ...loadedConfig });
+        }
+      });
+    }
   }
 
   getCurrentConfig(): AppConfig {
@@ -83,5 +89,3 @@ export class ConfigService {
     return this.configSubject.value.senderEmail;
   }
 }
-
-
